@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="newsSOA:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="newsSOA.war">
+      <element id="artifact" artifact-name="newsSOA:war exploded" />
+    </root>
+  </artifact>
+</component>

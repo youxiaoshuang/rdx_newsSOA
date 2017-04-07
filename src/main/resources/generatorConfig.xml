@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- 引入配置文件 -->
+    <!-- <properties resource="./init.properties" /> -->
+
+    <!-- 指定数据连接驱动jar地址 -->
+    <classPathEntry location="/Users/youxiaoshuang/Desktop/mysql-connector-java-5.1.31.jar" />
+
+    <!-- 一个数据库一个context -->
+    <context id="read">
+
+        <commentGenerator>
+            <!-- 是否取消注释 -->
+            <property name="suppressAllComments" value="true" />
+            <!-- 是否生成注释代时间戳 -->
+            <property name="suppressDate" value="false" />
+        </commentGenerator>
+
+        <!-- 		jdbc连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://118.193.242.63:3306/fighting"
+                        userId="root" password="root" />
+
+        <!-- 		类型转换 -->
+        <javaTypeResolver>
+            <!-- 			是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 		实体类 -->
+        <javaModelGenerator targetProject="src/main/java" targetPackage="com.rdx.entity">
+            <property name="enableSubPackages" value="false" />
+            <!-- 			是否针对string类型的字段在set的时候进行trim调用 -->
+            <property name="trimStrings" value="false" />
+        </javaModelGenerator>
+
+        <!-- 		mapxml -->
+        <sqlMapGenerator targetProject="src/main/resources" targetPackage="mapper/">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!-- 		dao -->
+        <javaClientGenerator targetProject="src/main/java" targetPackage="com.rdx.dao" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <table schema="fighting" tableName="user" domainObjectName="User"
+               enableInsert="true"
+               enableDeleteByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true"
+               enableSelectByPrimaryKey="true"
+               enableCountByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true">
+        </table>
+
+    </context>
+
+    <!--<context id="write">-->
+        <!--<commentGenerator>-->
+            <!--<property name="suppressAllComments" value="true" />&lt;!&ndash; 是否取消注释 &ndash;&gt;-->
+            <!--<property name="suppressDate" value="false" /> &lt;!&ndash; 是否生成注释代时间戳 &ndash;&gt;-->
+        <!--</commentGenerator>-->
+
+        <!--&lt;!&ndash; jdbc连接 &ndash;&gt;-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+                        <!--connectionURL="jdbc:mysql://10.0.18.178:3306/nhouse"-->
+                        <!--userId="lifangdev" password="lifang@dev" />-->
+        <!--&lt;!&ndash; 类型转换 &ndash;&gt;-->
+        <!--<javaTypeResolver>-->
+            <!--&lt;!&ndash; 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） &ndash;&gt;-->
+            <!--<property name="forceBigDecimals" value="false" />-->
+        <!--</javaTypeResolver>-->
+
+        <!--&lt;!&ndash; 实体类 &ndash;&gt;-->
+        <!--<javaModelGenerator targetProject="src/main/java" targetPackage="com.lifang.imgsoa.entity.nhouse" >-->
+            <!--<property name="enableSubPackages" value="false" />-->
+            <!--&lt;!&ndash; 是否针对string类型的字段在set的时候进行trim调用 &ndash;&gt;-->
+            <!--<property name="trimStrings" value="false" />-->
+        <!--</javaModelGenerator>-->
+
+        <!--&lt;!&ndash; mapxml &ndash;&gt;-->
+        <!--<sqlMapGenerator targetProject="src/main/resources" targetPackage="mybatis/nhouse/write">-->
+            <!--<property name="enableSubPackages" value="false" />-->
+        <!--</sqlMapGenerator>-->
+
+        <!--&lt;!&ndash; dao &ndash;&gt;-->
+        <!--<javaClientGenerator targetProject="src/main/java" targetPackage="com.lifang.imgsoa.dao.nhouse.write" type="XMLMAPPER">-->
+            <!--<property name="enableSubPackages" value="false" />-->
+        <!--</javaClientGenerator>-->
+
+        <!--<table schema="nhouse" tableName="estate_sub_video" domainObjectName="NHEstateVideoWrite"-->
+               <!--enableInsert="true"-->
+               <!--enableDeleteByPrimaryKey="true"-->
+               <!--enableUpdateByPrimaryKey="true"-->
+               <!--enableSelectByPrimaryKey="false"-->
+               <!--enableCountByExample="false"-->
+               <!--enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false"-->
+               <!--enableUpdateByExample="false">-->
+        <!--</table>-->
+
+    <!--</context>-->
+</generatorConfiguration>
