@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rdx.newsSOA.dao.NDoucumentMapper">
+    <!--<cache type="com.rdx.Cache.RedisCache"/>-->
+    <resultMap id="BaseResultMap" type="com.rdx.newsSOA.entity.NDoucument">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="desc" property="desc" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP"/>
+        <result column="createTime" property="createtime" jdbcType="TIMESTAMP"/>
+        <result column="uuid" property="uuid" jdbcType="VARCHAR"/>
+        <result column="sourceType" property="sourceType" jdbcType="INTEGER"/>
+        <result column="sourceUrl" property="sourceUrl" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    id, content,`desc`, title, status, updateTime, createTime, uuid,sourceType,sourceUrl
+  </sql>
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.rdx.newsSOA.entity.NDoucumentExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from n_document
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from n_document
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from n_document
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <delete id="deleteByExample" parameterType="com.rdx.newsSOA.entity.NDoucumentExample">
+        delete from n_document
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+
+    <insert id="insertDocBrowser" parameterType="com.rdx.newsSOA.face.serviceModel.DocBrowseLogModel">
+        insert LOW_PRIORITY INTO doc_browse_log(docId,userId,createTime,updateTime)
+        VALUES (#{docId,jdbcType=INTEGER},#{userId,jdbcType=INTEGER},now(),now());
+    </insert>
+
+    <insert id="insert" parameterType="com.rdx.newsSOA.entity.NDoucument">
+    insert into n_document (id, content, title, 
+      status, updateTime, createTime, 
+      uuid,`desc`,sourceType,sourceUrl)
+    values (#{id,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{updatetime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{uuid,jdbcType=VARCHAR},#{desc,jdbcType=VARCHAR},#{sourceType,jdbcType=INTEGER},#{sourceUrl,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.rdx.newsSOA.entity.NDoucument" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into n_document
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="updatetime != null">
+                updateTime,
+            </if>
+            <if test="createtime != null">
+                createTime,
+            </if>
+            <if test="uuid != null">
+                uuid,
+            </if>
+            <if test="md5 != null">
+                md5,
+            </if>
+            <if test="desc != null">
+                `desc`,
+            </if>
+            <if test="sourceType != null">
+                sourceType,
+            </if>
+            <if test="sourceUrl != null">
+                sourceUrl,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="uuid != null">
+                #{uuid,jdbcType=VARCHAR},
+            </if>
+            <if test="md5 != null">
+                #{md5,jdbcType=VARCHAR},
+            </if>
+            <if test="desc != null">
+                #{desc,jdbcType=VARCHAR},
+            </if>
+            <if test="sourceType != null">
+                #{sourceType,jdbcType=INTEGER},
+            </if>
+            <if test="sourceUrl != null">
+                #{sourceUrl,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.rdx.newsSOA.entity.NDoucumentExample"
+            resultType="java.lang.Integer">
+        select count(*) from n_document
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <select id="selectByAll" resultType="com.rdx.newsSOA.entity.NDoucument">
+            SELECT
+  d.id,
+  d.content,
+  d.`desc`,
+  d.title,
+  d.status,
+  d.updateTime,
+  d.createTime,
+  d.uuid,
+  d.sourceType,
+  d.sourceUrl,
+  (SELECT count(1) FROM y_file f WHERE f.docId = d.id AND d.status = 1) AS imageSize
+FROM n_document d
+WHERE d.`status` = 1 ORDER BY d.id DESC limit 5
+    </select>
+
+
+    <select id="selectBanner" resultType="com.rdx.newsSOA.entity.NDoucument">
+    SELECT
+      d.id,
+      d.title,
+      d.uuid
+    FROM n_document d
+    WHERE d.`status` = 1 AND (SELECT count(1) FROM y_file f WHERE f.docId = d.id AND d.status = 1) >0  ORDER BY d.id DESC limit 5
+   </select>
+
+    <select id="selectByRefresh" resultType="com.rdx.newsSOA.dto.DocumentModel">
+        SELECT
+        id,
+        uuid,
+        title,
+        `desc`,
+        CASE sourceType
+        WHEN 1
+        THEN 'xxs'
+        WHEN 2
+        THEN 'xxs'
+        WHEN 3
+        THEN 'href'
+        WHEN 4
+        THEN 'vedio'
+        WHEN 5
+        THEN 'dz'
+        WHEN 6
+        THEN 'qt'
+        WHEN 7
+        THEN 'nhvedio'
+        END AS type
+        FROM n_document
+        WHERE `status` = 1 AND sourceType IN (1,2)
+        <if test="uuid != null">
+            AND id&lt;(SELECT id FROM n_document WHERE uuid = #{uuid,jdbcType=VARCHAR})
+        </if>
+        ORDER BY id DESC limit 7
+    </select>
+
+    <select id="selectByCode" resultType="com.rdx.newsSOA.entity.NDoucument">
+        select
+        <include refid="Base_Column_List"/>
+        from n_document
+        where uuid = #{code,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByMd5" resultType="com.rdx.newsSOA.entity.NDoucument">
+        select
+        <include refid="Base_Column_List"/>
+        from n_document
+        where md5 = #{md5,jdbcType=VARCHAR}
+    </select>
+    <select id="selectHotNews" resultType="com.rdx.newsSOA.entity.NDoucument">
+         SELECT
+  d.id,
+  d.content,
+  d.`desc`,
+  d.title,
+  d.status,
+  d.updateTime,
+  d.createTime,
+  d.uuid,
+  d.sourceType,
+  d.sourceUrl,
+  (SELECT count(1) FROM y_file f WHERE f.docId = d.id AND d.status = 1) AS imageSize
+FROM n_document d
+WHERE d.`status` = 1  AND d.sourceType IN (1,2,3) ORDER BY d.id DESC limit 5
+    </select>
+    <select id="selectHotNewsByRefresh" resultType="com.rdx.newsSOA.entity.NDoucument">
+         SELECT
+        d.id,
+        d.content,
+        d.`desc`,
+        d.title,
+        d.status,
+        d.updateTime,
+        d.createTime,
+        d.uuid,
+        d.sourceType,
+        d.sourceUrl,
+        (SELECT count(1) FROM y_file f WHERE f.docId = d.id AND d.status = 1) AS imageSize
+        FROM n_document d
+        WHERE d.`status` = 1 AND id&lt;(SELECT id  FROM n_document WHERE uuid = #{uuid,jdbcType=VARCHAR}) AND d.sourceType IN (1,2,3) ORDER BY d.id desc  limit 5
+    </select>
+    <select id="selectQuTu" resultType="com.rdx.newsSOA.entity.NDoucument">
+         SELECT
+  d.id,
+  d.content,
+  d.`desc`,
+  d.title,
+  d.status,
+  d.updateTime,
+  d.createTime,
+  d.uuid,
+  d.sourceType,
+  d.sourceUrl,
+  (SELECT count(1) FROM y_file f WHERE f.docId = d.id AND d.status = 1) AS imageSize
+FROM n_document d
+WHERE d.`status` = 1  AND d.sourceType = 6 ORDER BY d.id DESC limit 5
+    </select>
+
+
+    <select id="selectQuTuByRefresh" resultType="com.rdx.newsSOA.dto.DocumentModel">
+        SELECT
+        id,
+        uuid,
+        title,
+        `desc`,
+        CASE sourceType
+        WHEN 1
+        THEN 'xxs'
+        WHEN 2
+        THEN 'xxs'
+        WHEN 3
+        THEN 'href'
+        WHEN 4
+        THEN 'vedio'
+        WHEN 5
+        THEN 'dz'
+        WHEN 6
+        THEN 'qt'
+        WHEN 7
+        THEN 'nhvedio'
+        END AS type
+        FROM n_document
+        WHERE `status` = 1 AND sourceType = 6
+        <if test="uuid != null">
+            AND id&lt;(SELECT id FROM n_document WHERE uuid = #{uuid,jdbcType=VARCHAR})
+        </if>
+        ORDER BY id DESC limit 7
+
+    </select>
+    <select id="selectDuanZi" resultType="com.rdx.newsSOA.entity.NDoucument">
+         SELECT
+  d.id,
+  d.content,
+  d.`desc`,
+  d.title,
+  d.status,
+  d.updateTime,
+  d.createTime,
+  d.uuid,
+  d.sourceType,
+  d.sourceUrl,
+  (SELECT count(1) FROM y_file f WHERE f.docId = d.id AND d.status = 1) AS imageSize
+FROM n_document d
+WHERE d.`status` = 1  AND d.sourceType = 5 ORDER BY d.id DESC limit 5
+    </select>
+    <select id="selectDuanZiByRefresh" resultType="com.rdx.newsSOA.dto.DocumentModel">
+        SELECT
+        id,
+        uuid,
+        title,
+        `desc`,
+        CASE sourceType
+        WHEN 1
+        THEN 'xxs'
+        WHEN 2
+        THEN 'xxs'
+        WHEN 3
+        THEN 'href'
+        WHEN 4
+        THEN 'vedio'
+        WHEN 5
+        THEN 'dz'
+        WHEN 6
+        THEN 'qt'
+        WHEN 7
+        THEN 'nhvedio'
+        END AS type
+        FROM n_document
+        WHERE `status` = 1 AND sourceType = 5
+        <if test="uuid != null">
+            AND id&lt;(SELECT id FROM n_document WHERE uuid = #{uuid,jdbcType=VARCHAR})
+        </if>
+        ORDER BY id DESC limit 7
+
+    </select>
+
+    <select id="selectHotNewsByPull" resultType="com.rdx.newsSOA.entity.NDoucument">
+        SELECT
+        d.id,
+        d.content,
+        d.`desc`,
+        d.title,
+        d.status,
+        d.updateTime,
+        d.createTime,
+        d.uuid,
+        d.sourceType,
+        d.sourceUrl,
+        (SELECT count(1) FROM y_file f WHERE f.docId = d.id AND d.status = 1) AS imageSize
+        FROM n_document d
+        WHERE d.`status` = 1 AND id&gt;(SELECT id  FROM n_document WHERE uuid = #{uuid,jdbcType=VARCHAR}) AND d.sourceType IN (1,2,3) ORDER BY d.id limit 5
+
+    </select>
+    <select id="selectQuTuByPull" resultType="com.rdx.newsSOA.entity.NDoucument">
+        SELECT
+        d.id,
+        d.content,
+        d.`desc`,
+        d.title,
+        d.status,
+        d.updateTime,
+        d.createTime,
+        d.uuid,
+        d.sourceType,
+        d.sourceUrl,
+        (SELECT count(1) FROM y_file f WHERE f.docId = d.id AND d.status = 1) AS imageSize
+        FROM n_document d
+        WHERE d.`status` = 1 AND id&gt;(SELECT id  FROM n_document WHERE uuid = #{uuid,jdbcType=VARCHAR}) AND d.sourceType = 6 ORDER BY d.id limit 5
+
+
+    </select>
+    <select id="selectDuanZiByPull" resultType="com.rdx.newsSOA.entity.NDoucument">
+        SELECT
+        d.id,
+        d.content,
+        d.`desc`,
+        d.title,
+        d.status,
+        d.updateTime,
+        d.createTime,
+        d.uuid,
+        d.sourceType,
+        d.sourceUrl,
+        (SELECT count(1) FROM y_file f WHERE f.docId = d.id AND d.status = 1) AS imageSize
+        FROM n_document d
+        WHERE d.`status` = 1 AND id&gt;(SELECT id  FROM n_document WHERE uuid = #{uuid,jdbcType=VARCHAR}) AND d.sourceType = 5 ORDER BY d.id limit 5
+    </select>
+    <select id="selectByPull" resultType="com.rdx.newsSOA.entity.NDoucument">
+        SELECT
+        d.id,
+        d.content,
+        d.`desc`,
+        d.title,
+        d.status,
+        d.updateTime,
+        d.createTime,
+        d.uuid,
+        d.sourceType,
+        d.sourceUrl,
+        (SELECT count(1) FROM y_file f WHERE f.docId = d.id AND d.status = 1) AS imageSize
+        FROM n_document d
+        WHERE d.`status` = 1 AND id&gt;(SELECT id  FROM n_document WHERE uuid = #{uuid,jdbcType=VARCHAR}) ORDER BY d.id  limit 5
+    </select>
+    <select id="selectNews2" resultType="com.rdx.newsSOA.dto.DocumentModel">
+        SELECT  id,uuid,title,`desc` from n_document WHERE sourceType in (1,2) AND status = 1 ORDER BY id DESC LIMIT 2;
+    </select>
+
+    <select id="selectQuTu2" resultType="com.rdx.newsSOA.dto.DocumentModel">
+        SELECT  id,uuid,title,`desc` from n_document WHERE sourceType = 6 AND status = 1 ORDER BY id DESC LIMIT 2;
+    </select>
+
+    <select id="selectDZ2" resultType="com.rdx.newsSOA.dto.DocumentModel">
+        SELECT  id,uuid,title,`desc` from n_document WHERE sourceType = 5 AND status = 1 ORDER BY id DESC LIMIT 2;
+    </select>
+
+    <select id="selectImgByNews" resultType="com.rdx.newsSOA.dto.ImageModel" parameterType="java.lang.Integer">
+      SELECT url,`key`,isLocalFile AS isLocalImage FROM y_file WHERE docId = #{docId};
+    </select>
+    <select id="selectMaxId" resultType="java.lang.Integer">
+        SELECT max(id) FROM n_document;
+    </select>
+    <select id="selectImageModelById" resultType="com.rdx.newsSOA.dto.DocumentModel">
+        SELECT
+        id,
+        uuid,
+        title,
+        `desc`,
+        CASE sourceType
+        WHEN 1
+        THEN 'xxs'
+        WHEN 2
+        THEN 'xxs'
+        WHEN 3
+        THEN 'href'
+        WHEN 4
+        THEN 'vedio'
+        WHEN 5
+        THEN 'dz'
+        WHEN 6
+        THEN 'qt'
+        WHEN 7
+        THEN 'nhvedio'
+        END AS type
+        FROM n_document
+        WHERE status = 1 AND sourceType &lt;&gt; 3 AND id &gt;= #{id} order by id  limit #{number}
+    </select>
+
+
+    <select id="selectImageModelNewsById" resultType="com.rdx.newsSOA.dto.DocumentModel">
+        SELECT
+        id,
+        uuid,
+        title,
+        `desc`,
+        CASE sourceType
+        WHEN 1
+        THEN 'xxs'
+        WHEN 2
+        THEN 'xxs'
+        WHEN 3
+        THEN 'href'
+        WHEN 4
+        THEN 'vedio'
+        WHEN 5
+        THEN 'dz'
+        WHEN 6
+        THEN 'qt'
+        WHEN 7
+        THEN 'nhvedio'
+        END AS type
+        FROM n_document
+        WHERE status = 1 AND sourceType in (1,2) AND id &gt;= #{id} order by id limit #{number}
+    </select>
+
+    <select id="selectImageModelQtById" resultType="com.rdx.newsSOA.dto.DocumentModel">
+        SELECT
+        id,
+        uuid,
+        title,
+        `desc`,
+        CASE sourceType
+        WHEN 1
+        THEN 'xxs'
+        WHEN 2
+        THEN 'xxs'
+        WHEN 3
+        THEN 'href'
+        WHEN 4
+        THEN 'vedio'
+        WHEN 5
+        THEN 'dz'
+        WHEN 6
+        THEN 'qt'
+        WHEN 7
+        THEN 'nhvedio'
+        END AS type
+        FROM n_document
+        WHERE status = 1 AND sourceType = 6 AND id &gt;= #{id} order by id limit #{number}
+    </select>
+
+
+    <select id="selectImageModelDzById" resultType="com.rdx.newsSOA.dto.DocumentModel">
+        SELECT
+        id,
+        uuid,
+        title,
+        `desc`,
+        CASE sourceType
+        WHEN 1
+        THEN 'xxs'
+        WHEN 2
+        THEN 'xxs'
+        WHEN 3
+        THEN 'href'
+        WHEN 4
+        THEN 'vedio'
+        WHEN 5
+        THEN 'dz'
+        WHEN 6
+        THEN 'qt'
+        WHEN 7
+        THEN 'nhvedio'
+        END AS type
+        FROM n_document
+        WHERE status = 1 AND sourceType = 5 AND id = &gt;= #{id} order by id limit #{number}
+    </select>
+
+
+    <update id="updateByExampleSelective" parameterType="map">
+        update n_document
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.content != null">
+                content = #{record.content,jdbcType=VARCHAR},
+            </if>
+            <if test="record.title != null">
+                title = #{record.title,jdbcType=VARCHAR},
+            </if>
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=INTEGER},
+            </if>
+            <if test="record.updatetime != null">
+                updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.createtime != null">
+                createTime = #{record.createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.uuid != null">
+                uuid = #{record.uuid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update n_document
+        set id = #{record.id,jdbcType=INTEGER},
+        content = #{record.content,jdbcType=VARCHAR},
+        title = #{record.title,jdbcType=VARCHAR},
+        status = #{record.status,jdbcType=INTEGER},
+        updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+        createTime = #{record.createtime,jdbcType=TIMESTAMP},
+        uuid = #{record.uuid,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.rdx.newsSOA.entity.NDoucument">
+        update n_document
+        <set>
+            <if test="content != null">
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null">
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="updatetime != null">
+                updateTime = #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createtime != null">
+                createTime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="uuid != null">
+                uuid = #{uuid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.rdx.newsSOA.entity.NDoucument">
+    update n_document
+    set content = #{content,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      uuid = #{uuid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <update id="updateByUuid" parameterType="com.rdx.newsSOA.entity.NDoucument">
+        update n_document
+    set content = #{content,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      `desc` = #{desc,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+    </update>
+</mapper>

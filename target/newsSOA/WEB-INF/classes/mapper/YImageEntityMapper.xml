@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rdx.newsSOA.dao.YImageEntityMapper" >
+  <!--<cache type="com.rdx.Cache.RedisCache"/>-->
+  <resultMap id="BaseResultMap" type="com.rdx.newsSOA.entity.YImageEntity" >
+    <id column="imageId" property="imageid" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="BIGINT" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+     <result column="ftpUrl" property="ftpUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    imageId, type, name, size, url,ftpUrl
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from y_image
+    where imageId = #{imageid,jdbcType=INTEGER}
+  </select>
+  <select id="selectImagesPage" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from y_image
+  </select>
+  <select id="selectFtpUtlByName" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from y_image where name = #{Name,jdbcType=VARCHAR};
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from y_image
+    where imageId = #{imageid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rdx.newsSOA.entity.YImageEntity" >
+    insert into y_image (imageId, type, name, 
+      size, url, ftpUrl)
+    values (#{imageid,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{size,jdbcType=BIGINT}, #{url,jdbcType=VARCHAR},#{ftpUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rdx.newsSOA.entity.YImageEntity" >
+    insert into y_image
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="imageid != null" >
+        imageId,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+       <if test="ftpUrl != null" >
+        ftpUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="imageid != null" >
+        #{imageid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=BIGINT},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+       <if test="ftpUrl != null" >
+        #{ftpUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rdx.newsSOA.entity.YImageEntity" >
+    update y_image
+    <set >
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=BIGINT},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+       <if test="ftpUrl != null" >
+        url = #{ftpUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where imageId = #{imageid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rdx.newsSOA.entity.YImageEntity" >
+    update y_image
+    set type = #{type,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      size = #{size,jdbcType=BIGINT},
+      url = #{url,jdbcType=VARCHAR},
+      ftpUrl = #{ftpUrl,jdbcType=VARCHAR}
+    where imageId = #{imageid,jdbcType=INTEGER}
+  </update>
+</mapper>
