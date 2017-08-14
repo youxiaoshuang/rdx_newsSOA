@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -25,42 +26,86 @@ public class SpiderTask {
     NeiHanImagePageProcessor neiHanImagePageProcessor;
     @Autowired
     DouTuDetailProcessor douTuDetailProcessor;
+    @Autowired
+    private ThreadPoolTaskExecutor threadPoolTaskExecutor;
+//    @Autowired
+//    private RedisClientAdapterImpl redisClientAdapter;
 
-    @Scheduled(cron = "0/60 * * * * ?")
+
+    /**
+     * 每一分钟执行一次
+     */
+    @Scheduled(cron = "0 0/1 * * * ?")
     public void run() {
-        new Thread( new Runnable() {
-            @Override
-            public void run() {
-                spiderYCRun();
-            }
-        } ).run();
-        new Thread( new Runnable() {
+//        threadPoolTaskExecutor.execute( new Runnable() {
+//            @Override
+//            public void run() {
+//                spiderYCRun();
+//            }
+//        } );
+//        threadPoolTaskExecutor.execute( new Runnable() {
+//            @Override
+//            public void run() {
+//                spiderNeiHanDuanZiRun();
+//            }
+//        } );
+        threadPoolTaskExecutor.execute( new Runnable() {
             @Override
             public void run() {
                 spiderHotRun();
             }
-        } ).run();
-        new Thread( new Runnable() {
-            @Override
-            public void run() {
-                spiderNeiHanDuanZiRun();
-            }
-        } ).run();
-        new Thread( new Runnable() {
-            @Override
-            public void run() {
-                spiderNeiImageZiRun();
-            }
-        } ).run();
-        new Thread( new Runnable() {
-            @Override
-            public void run() {
-                spiderDouTuRun();
-            }
-        } ).run();
-
-
+        } );
+//        threadPoolTaskExecutor.execute( new Runnable() {
+//            @Override
+//            public void run() {
+//                spiderNeiImageZiRun();
+//            }
+//        } );
+//        threadPoolTaskExecutor.execute( new Runnable() {
+//            @Override
+//            public void run() {
+//                spiderDouTuRun();
+//            }
+//        } );
+//        threadPoolTaskExecutor.execute( new Runnable() {
+//            @Override
+//            public void run() {
+//                spiderKeyWord();
+//            }
+//        } );
     }
+
+
+    /**
+     * 爬取键字新闻
+     */
+
+    public void spiderKeyWord(){
+        Long dateTime = new Date().getTime();
+//        String spiderKeyWord = (String) redisClientAdapter.get( "spiderKeyWord" );
+        String spiderKeyWord = "宜昌,三峡,事故,宜都,清江,趣闻,搞笑,情趣,夷陵,长阳,五峰,日大侠,眼子鸡,峡州,彝陵,沮漳河,黄柏河,柏临河,香溪河,猇亭,点军区,伍家岗区,西陵区,当阳,枝江,兴山,秭归,葛洲坝,晓溪塔,磨基山,天然塔,文佛山";
+        logger.info( "取得关键字集：{}"+spiderKeyWord );
+        if(spiderKeyWord!=null){
+            String[] split = spiderKeyWord.split( "," );
+            if(split!=null && split.length>0){
+                for (final String s : split) {
+                    threadPoolTaskExecutor.execute( new Runnable() {
+                        @Override
+                        public void run() {
+                            Long dateTime = new Date().getTime();
+                            String url = "http://www.toutiao.com/search_content/?offset=60&format=json&keyword="+s+"&autoload=true&count=10&_=" + dateTime;
+                            logger.info( "执行爬取关键字"+s+"新闻任务 URL:" + url );
+                            touTiaoYiChangPageProcessor.run( touTiaoYiChangPageProcessor, url );
+                        }
+                    } );
+                }
+            }
+        }
+        String url = "http://www.toutiao.com/search_content/?offset=60&format=json&keyword="+"视频"+"&autoload=true&count=10&_=" + dateTime;
+        logger.info( "执行爬取关键字"+"宜昌"+"新闻任务 URL:" + url );
+        touTiaoYiChangPageProcessor.run( touTiaoYiChangPageProcessor, url );
+    }
+
 
     /**
      * 刷宜昌相关新闻
@@ -78,9 +123,9 @@ public class SpiderTask {
      * 每60秒执行一次
      */
     public void spiderHotRun() {
-//        Long dateTime = new Date().getTime();
+        Long dateTime = new Date().getTime();
 //        String hotStaticTime = NewsStatic.YC_max_behot_time;
-        String url = "http://www.toutiao.com/api/pc/feed/?category=__all__&utm_source=toutiao&widen=1&max_behot_time=0&max_behot_time_tmp=0&as=A125C8B4A7AFA75&cp=583E9D110BFD1E1";
+        String url = "http://www.toutiao.com/api/pc/feed/?category=news_hot&utm_source=toutiao&widen=1&max_behot_time=0&max_behot_time_tmp=0&as=0&cp=598C835B9AB44E1";
         logger.info( "执行爬去今日头条热门任务 URL:" + url );
         touTiaoHotPageProcessor.run( touTiaoHotPageProcessor, url );
     }

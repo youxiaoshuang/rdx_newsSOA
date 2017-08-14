@@ -1,6 +1,6 @@
 package com.rdx.newsSOA.spider;
 
-import com.rdx.newsSOA.dao.TouTiaoNewModel;
+import com.rdx.newsSOA.dto.TouTiaoNewModel;
 import com.rdx.newsSOA.dto.NewsStatic;
 import com.rdx.newsSOA.entity.YFile;
 import com.rdx.newsSOA.util.JsonTool;
@@ -27,31 +27,24 @@ public class TouTiaoHotPageProcessor implements PageProcessor {
 //    private Site site = Site.me().setRetryTimes( 3 ).setSleepTime( 1000 );
 
     private Site site = Site.me().setCycleRetryTimes( 5 ).setRetryTimes( 5 ).setSleepTime( 500 ).setTimeOut( 3 * 60 * 1000 )
-            .setUserAgent( "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36" )
-            .addHeader( "Accept", "text/javascript, text/html, application/xml, text/xml, */*" )
-            .addHeader( "Accept-Encoding", "gzip, deflate, sdch, br" )
-            .addHeader( "Accept-Language", "zh-CN,zh;q=0.8,en;q=0.6" )
-            .addHeader( "Cache-Control", "no-cache" )
-            .addHeader( "Connection","keep-alive" )
-            .addCookie( "no-cache","w:10940df6ae9b45b58f0f055f6b775dc8" )
-            .addCookie( "cp","583E9D110BFD1E1" )
-            .addCookie( "__utma","24953151.1964721584.1472474880.1480398017.1480512393.3" )
-            .addCookie( "__utmz","24953151.1480391746.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)" )
-            .addCookie( "login_flag","b94f12620f33109ce5dc9c46327396bd" )
-            .addCookie( "sid_tt","10c8d9ccc00b6ff2ebc78d3604de5f19" )
-            .addCookie( "sessionid","10c8d9ccc00b6ff2ebc78d3604de5f19" )
-            .addCookie( "sid_guard","10c8d9ccc00b6ff2ebc78d3604de5f19|1480845873|2592000|Tue\\054 03-Jan-2017 10:04:33 GMT" )
-            .addCookie( "csrftoken","d4b4ba5bf7989f636600a7ab4873273e" )
-            .addCookie( "tt_webid","27059611200" )
-            .addCookie( "CNZZDATA1259612802","587757308-1476007816-null%7C1481110821" )
-            .addCookie( "_ga","GA1.2.1964721584.1472474880" )
-            .addCookie( "__tasessionId","iuc20sx3s1481111917461" )
-            .addHeader( "Host","www.toutiao.com" )
-            .addHeader( "Pragma","no-cache" )
-            .addHeader( "Referer","https://www.toutiao.com/news_hot/" )
-            .addHeader( "X-Requested-With","XMLHttpRequest" )
-            .addHeader( "Cookie", "uuid=\"w:f4fda41206df471a90c2988bb4b138b4\"; _ga=GA1.3.1815051801.1473401208; tt_webid=28215330997; Hm_lvt_773f1a5aa45c642cf87eef671e4d3f6a=1480736686; Hm_lpvt_773f1a5aa45c642cf87eef671e4d3f6a=1480736686; skip_guidence=1; csrftoken=783a7367ddad6fa93161b76e649a59c0" )
+            .addHeader( "Host", "www.toutiao.com" )
+            .addHeader( "User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:54.0) Gecko/20100101 Firefox/54.0" )
+            .addHeader( "Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" )
+            .addHeader( "Accept-Language", "en-US,en;q=0.5" )
+            .addHeader( "Accept-Encoding", "gzip, deflate" )
+            .addHeader( "Cookie", "uuid=\"w:25a45b21390b4965af72ef9fb61b3a20\"; csrftoken=9b1ed4fe7578957f4449f645f8b377bf; CNZZDATA1259612802=456533365-1483603972-null%7C1498478369; _ga=GA1.2.1242994831.1483608561; tt_webid=6435921460971636226; _ba=BA0.2-20170626-51d9e-9ihO5SLt2VW2zEl0cy9e; UM_distinctid=15ce45ab4373af-03b6698e8981da-49556d-25800-15ce45ab438c7" )
+            .addHeader( "Connection", "keep-alive" )
+            .addHeader( "Upgrade-Insecure-Requests", "1" )
+            .addHeader( "Cache-Control", "max-age=0" )
+            .addCookie( "uuid", "\"w:25a45b21390b4965af72ef9fb61b3a20\"" )
+            .addCookie( "csrftoken", "9b1ed4fe7578957f4449f645f8b377bf" )
+            .addCookie( "CNZZDATA1259612802", "456533365-1483603972-null|1498478369" )
+            .addCookie( "_ga", "GA1.2.1242994831.1483608561" )
+            .addCookie( "tt_webid", "6435921460971636226" )
+            .addCookie( "_ba", "BA0.2-20170626-51d9e-9ihO5SLt2VW2zEl0cy9e" )
+            .addCookie( "UM_distinctid", "15ce45ab4373af-03b6698e8981da-49556d-25800-15ce45ab438c7" )
             .setCharset( "UTF-8" );
+
     @Override
     public void process(Page page) {
 //        page.addTargetRequests(page.getHtml().links().regex("(https://github\\.com/\\w+/\\w+)").all());
@@ -63,12 +56,12 @@ public class TouTiaoHotPageProcessor implements PageProcessor {
 //        }
 //        page.putField("readme", page.getHtml().xpath("//div[@id='readme']/tidyText()"));
 //        System.out.printf( page.getRawText() );
-        logger.info( "爬取到的数据{}", JsonTool.writeValueAsString( page.getRawText() ) );
+        logger.info( "爬取到数据" );
         List<TouTiaoNewModel> newsList = getNewsList( page );
-        logger.info( "分析之后的数据：{}", JsonTool.writeValueAsString( newsList ) );
+        logger.info( "分析数据" );
         for (TouTiaoNewModel touTiaoNewModel : newsList) {
             //保存新闻
-            logger.info( "保存一条新闻:{}", JsonTool.writeValueAsString( touTiaoNewModel ) );
+            logger.info( "保存一条新闻   标题:{}", JsonTool.writeValueAsString( touTiaoNewModel.getTitle() ) );
             touTiaoHotDetailProcessor.Run( touTiaoNewModel, touTiaoHotDetailProcessor );
         }
 
@@ -77,12 +70,12 @@ public class TouTiaoHotPageProcessor implements PageProcessor {
     public List<TouTiaoNewModel> getNewsList(Page page) {
         String json = page.getRawText();
         JSONObject jsonBean = JSONObject.fromObject( json );
-        Object data =  jsonBean.get( "data" );
-        Object  next  = jsonBean.get( "next" );
+        Object data = jsonBean.get( "data" );
+        Object next = jsonBean.get( "next" );
         JSONArray jsonArray = JSONArray.fromObject( data );
         JSONArray nextArray = JSONArray.fromObject( next );
         JSONObject nextObject = (JSONObject) nextArray.get( 0 );
-        NewsStatic.YC_max_behot_time= String.valueOf( nextObject.get( "max_behot_time" ) );
+        NewsStatic.YC_max_behot_time = String.valueOf( nextObject.get( "max_behot_time" ) );
         List<TouTiaoNewModel> touTiaoNewModels = new ArrayList<TouTiaoNewModel>();
         for (int i = 0; i < jsonArray.size(); i++) {
             JSONObject jsonObject = (JSONObject) jsonArray.get( i );
@@ -91,12 +84,13 @@ public class TouTiaoHotPageProcessor implements PageProcessor {
             String media_name = (String) jsonObject.get( "media_name" );
             String dateTime = (String) jsonObject.get( "dateTime" );
             String desc = (String) jsonObject.get( "abstract" );
-            String label = (String) jsonObject.get( "label" );
+            JSONArray labelArray = (JSONArray) jsonObject.get( "label" );
+            String label = labelArray.getString( 0 );
             if (label != null && label.equals( "广告" )) continue;
             Boolean has_video = (Boolean) jsonObject.get( "has_video" );
             String item_source_url = (String) jsonObject.get( "item_source_url" );
             String source_url = (String) jsonObject.get( "source_url" );
-            StringBuffer url = new StringBuffer( "http://toutiao.com/" );
+            StringBuffer url = new StringBuffer( "https://www.toutiao.com/" );
             if (item_source_url != null) {
                 url.append( item_source_url );
             } else {
@@ -139,6 +133,6 @@ public class TouTiaoHotPageProcessor implements PageProcessor {
 
     public static void main(String[] args) {
         Long dateTime = new Date().getTime();
-        Spider.create( new TouTiaoHotPageProcessor() ).addUrl( "http://www.toutiao.com/search_content/?offset=60&format=json&keyword=%E5%AE%9C%E6%98%8C&autoload=true&count=1&_=" + dateTime ).thread( 1 ).run();
+        Spider.create( new TouTiaoHotPageProcessor() ).addUrl( "http://www.toutiao.com/api/pc/feed/?category=news_hot&utm_source=toutiao&widen=1&max_behot_time=0&max_behot_time_tmp=0&as=0&cp=598C835B9AB44E1" ).thread( 1 ).run();
     }
 }

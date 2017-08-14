@@ -1,7 +1,8 @@
 package com.rdx.newsSOA.face;
 
 
-import com.rdx.newsSOA.dao.TouTiaoNewModel;
+import com.rdx.newsSOA.dto.TouTiaoNewModel;
+import com.rdx.newsSOA.dto.ImageModel;
 import com.rdx.newsSOA.entity.NDoucument;
 import com.rdx.newsSOA.face.serviceModel.Response;
 
@@ -25,7 +26,17 @@ public interface NewsService {
 
     List<NDoucument> findNews();
 
+    List<NDoucument> findBanner();
+
+    List<ImageModel> selectImgByNews(Integer docId);
+
     Response refreshNews(String uuid);
+
+    /**
+     * 获取首页Banner 五个图
+     * @return
+     */
+    List<NDoucument> getBanner();
 
     List<NDoucument> findPullNews(String uuid);
 
@@ -62,5 +73,7 @@ public interface NewsService {
 
     Response getRandomDzData();
 
+
+    Response<String> pushNewsToBBS(NDoucument doucument);
 
 }

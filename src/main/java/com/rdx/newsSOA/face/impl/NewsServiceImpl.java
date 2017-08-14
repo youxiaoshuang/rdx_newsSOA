@@ -1,7 +1,7 @@
 package com.rdx.newsSOA.face.impl;
 
 import com.rdx.newsSOA.dao.NDoucumentMapper;
-import com.rdx.newsSOA.dao.TouTiaoNewModel;
+import com.rdx.newsSOA.dto.TouTiaoNewModel;
 import com.rdx.newsSOA.dao.YFileMapper;
 import com.rdx.newsSOA.dto.DocumentModel;
 import com.rdx.newsSOA.dto.ImageModel;
@@ -10,18 +10,16 @@ import com.rdx.newsSOA.entity.NDoucument;
 import com.rdx.newsSOA.entity.YFile;
 import com.rdx.newsSOA.face.NewsService;
 import com.rdx.newsSOA.face.serviceModel.Response;
-import com.rdx.newsSOA.util.DateUtils;
-import com.rdx.newsSOA.util.PageParameter;
+import com.rdx.newsSOA.util.*;
 import org.apache.commons.collections.map.HashedMap;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by youxiaoshuang on 16/7/28.
@@ -34,6 +32,8 @@ public class NewsServiceImpl implements NewsService {
     private NDoucumentMapper nDoucumentMapper;
     @Autowired
     private YFileMapper yFileMapper;
+//    @Autowired
+//    private RedisClientAdapterImpl redisClientAdapter;
 
     private Logger logger = LoggerFactory.getLogger( this.getClass() );
 
@@ -47,39 +47,42 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public NDoucument addTTNews(TouTiaoNewModel touTiaoNewModel) {
-        //先判断新闻是否添加过 根据title判断
-        NDoucument nDoucument = new NDoucument();
-        NDoucument doucument = nDoucumentMapper.selectByTitle( touTiaoNewModel.getTitle() );
-        if (doucument == null) {
-            String uuId = UUID.randomUUID().toString().replace( "-", "" );
-            nDoucument.setUuid( uuId );
-            nDoucument.setStatus( 1 );
-            nDoucument.setCreatetime( new Date() );
-            nDoucument.setSourceUrl( touTiaoNewModel.getUrl() );
-            nDoucument.setSourceType( touTiaoNewModel.getSourceTye() );
-            nDoucument.setTitle( touTiaoNewModel.getTitle() );
-            nDoucument.setContent( touTiaoNewModel.getContent() );
-            nDoucument.setStatus( 1 );
-            nDoucument.setDesc( touTiaoNewModel.getDesc() );
-            nDoucumentMapper.insertSelective( nDoucument );
-            //插入
-            List<YFile> yFiles = touTiaoNewModel.getYFiles();
-            if (yFiles != null && yFiles.size() > 0) {
-                for (YFile yFile : yFiles) {
-                    yFile.setDocid( nDoucument.getId() );
-                    int i = yFileMapper.insertSelective( yFile );
+        if (StringUtils.isNotEmpty( touTiaoNewModel.getTitle() )) {
+            //先判断新闻是否添加过 根据title的MD5判断
+            NDoucument nD = nDoucumentMapper.selectByMd5( EncryptUtil.md5( touTiaoNewModel.getTitle() ) );
+            if (nD == null && touTiaoNewModel.getTitle() != null) {
+                NDoucument nDoucument = new NDoucument();
+                String uuId = UUID.randomUUID().toString().replace( "-", "" );
+                String md5 = EncryptUtil.md5( touTiaoNewModel.getTitle() );
+                nDoucument.setUuid( uuId );
+                nDoucument.setMd5( md5 );
+                nDoucument.setStatus( 1 );
+                nDoucument.setCreatetime( new Date() );
+                nDoucument.setSourceUrl( touTiaoNewModel.getUrl() );
+                nDoucument.setSourceType( touTiaoNewModel.getSourceTye() );
+                nDoucument.setTitle( touTiaoNewModel.getTitle() );
+                nDoucument.setContent( touTiaoNewModel.getContent() );
+                nDoucument.setStatus( 1 );
+                nDoucument.setDesc( touTiaoNewModel.getDesc() );
+                nDoucumentMapper.insertSelective( nDoucument );
+                //插入
+                List<YFile> yFiles = touTiaoNewModel.getYFiles();
+                if (yFiles != null && yFiles.size() > 0) {
+                    for (YFile yFile : yFiles) {
+                        yFile.setDocid( nDoucument.getId() );
+                        int i = yFileMapper.insertSelective( yFile );
+                    }
                 }
+                Response<String> stringResponse = pushNewsToBBS( nDoucument );
+                logger.info( "推送新闻到bbs 返回：" + stringResponse );
+                return nDoucument;
             }
         }
-
-        return nDoucument;
+        return null;
     }
 
     public List<NDoucument> findNews() {
-        PageParameter pageParameter = new PageParameter( 1, 5 );
-        Page page = new Page();
-        page.setParameter( pageParameter );
-        List<NDoucument> nDoucuments = nDoucumentMapper.selectByAll( page );
+        List<NDoucument> nDoucuments = nDoucumentMapper.selectByAll();
         for (NDoucument nDoucument : nDoucuments) {
             List<YFile> yFiles = yFileMapper.selectByDocId( nDoucument.getId() );
             nDoucument.setImages( yFiles );
@@ -87,6 +90,22 @@ public class NewsServiceImpl implements NewsService {
             nDoucument.setPublishTime( s );
         }
         return nDoucuments;
+    }
+
+    @Override
+    @Cacheable("getBanner")
+    public List<NDoucument> findBanner() {
+        List<NDoucument> nDoucuments = nDoucumentMapper.selectBanner();
+        for (NDoucument nDoucument : nDoucuments) {
+            List<YFile> yFiles = yFileMapper.selectByDocId( nDoucument.getId() );
+            nDoucument.setImages( yFiles );
+        }
+        return nDoucuments;
+    }
+
+    @Override
+    public List<ImageModel> selectImgByNews(Integer docId) {
+        return nDoucumentMapper.selectImgByNews( docId );
     }
 
     @Override
@@ -98,6 +117,11 @@ public class NewsServiceImpl implements NewsService {
         response.setData( documentModels );
         response.setMsg( "success" );
         return response;
+    }
+
+    @Override
+    public List<NDoucument> getBanner() {
+        return null;
     }
 
     @Override
@@ -335,6 +359,63 @@ public class NewsServiceImpl implements NewsService {
         return response;
     }
 
+    @Override
+    public Response<String> pushNewsToBBS(NDoucument nDoucument) {
+        Response<String> response = new Response<>();
+        HttpUtil http = new HttpUtil();
+        System.out.println( "\nTesting 2 - Send Http POST request" );
+        Map<String, String> heads = new HashMap<>();
+        Map<String, String> params = new HashMap();
+        List<String> userList = new ArrayList();
+        userList.add( "fd8bf9aa-6a15-4927-a5ed-da24e63d67fb" );
+        userList.add( "1aff5a07-dfe6-4b18-ae96-34f6c387f754" );
+        userList.add( "dd983771-2db7-4db1-a3fc-a1547f6494da" );
+        userList.add( "4a14693d-d384-4536-bd7d-b7496dcb74a4" );
+        userList.add( "c23e2c18-68f3-4720-9b02-066e70c98fa8" );
+        userList.add( "e8d432f4-f436-42d5-818b-39d00d79ba5b" );
+        userList.add( "b1e75681-b9e5-48e5-94f7-a1f6f211f7fb" );
+        userList.add( "dcc6a7c0-fa37-4424-bfc7-f59f3b868b3d" );
+        userList.add( "778878f3-5da7-434f-a4e2-c92628569370" );
+        userList.add( "3b0a1a18-85ec-42ab-a4dc-8a5745d49d04" );
+        userList.add( "d97e64a1-c4e1-418a-944d-c55234bbfad5" );
+        userList.add( "93a70770-a0e4-466f-960e-945f4fe22625" );
+
+        int size = userList.size();
+        Random random = new Random();
+        int i = random.nextInt( size );
+        String userToken = userList.get( i );
+
+
+        heads.put( "Authorization", "Bearer " + userToken + "" );
+        //头条新闻
+        params.put( "cid", "16" );
+        params.put( "title", nDoucument.getTitle() );
+        String content = "";
+        if (StringUtils.isBlank( nDoucument.getContent() ) && nDoucument.getSourceType() == 3) {
+            content = "<div>\n" +
+                    "<object type=\"text/x-scriptlet\" data=\"" + nDoucument.getSourceUrl() +
+                    "\" width=100%  height=1000px></object>\n" +
+                    "</div> 如有侵权 请联系";
+            return null;
+        } else if (StringUtils.isNotBlank( nDoucument.getContent() )) {
+            content = nDoucument.getContent();
+        } else {
+            return null;
+        }
+        params.put( "content", content );
+        String url = Constants.BBS_ADD_NEWS;
+        String res = null;
+        try {
+            res = http.sendPost( url, params, heads );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        response.setStatus( 1 );
+        response.setMsg( "success" );
+        response.setData( res );
+        return response;
+    }
+
     /**
      * 随机获取多条内容
      *
@@ -407,7 +488,7 @@ public class NewsServiceImpl implements NewsService {
         return documentModels;
     }
 
-    public void putImages(List<DocumentModel> documentModels){
+    public void putImages(List<DocumentModel> documentModels) {
         for (DocumentModel ranDownNew : documentModels) {
             if (ranDownNew != null) {
                 List<ImageModel> imageModels = nDoucumentMapper.selectImgByNews( ranDownNew.getId() );

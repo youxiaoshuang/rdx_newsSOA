@@ -1,7 +1,7 @@
 package com.rdx.newsSOA.spider;
 
 
-import com.rdx.newsSOA.dao.TouTiaoNewModel;
+import com.rdx.newsSOA.dto.TouTiaoNewModel;
 import com.rdx.newsSOA.entity.NDoucument;
 import com.rdx.newsSOA.entity.YFile;
 import com.rdx.newsSOA.face.NewsService;

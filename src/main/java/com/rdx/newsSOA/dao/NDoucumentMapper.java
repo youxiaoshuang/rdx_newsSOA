@@ -5,6 +5,7 @@ import com.rdx.newsSOA.entity.NDoucument;
 import com.rdx.newsSOA.entity.NDoucumentExample;
 import com.rdx.newsSOA.dto.DocumentModel;
 import com.rdx.newsSOA.dto.Page;
+import com.rdx.newsSOA.face.serviceModel.DocBrowseLogModel;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -16,13 +17,17 @@ public interface NDoucumentMapper {
 
     int deleteByPrimaryKey(Integer id);
 
+    int insertDocBrowser(DocBrowseLogModel docBrowseLogModel);
+
     int insert(NDoucument record);
 
     int insertSelective(NDoucument record);
 
     List<NDoucument> selectByExample(NDoucumentExample example);
 
-    List<NDoucument> selectByAll(Page page);
+    List<NDoucument> selectByAll();
+
+    List<NDoucument> selectBanner();
 
     List<DocumentModel> selectByRefresh(String uuid);
 
@@ -46,7 +51,7 @@ public interface NDoucumentMapper {
      * @param title
      * @return
      */
-    NDoucument selectByTitle(@Param("title") String title);
+    NDoucument selectByMd5(@Param("md5") String title);
 
     List<NDoucument> selectHotNews(Page page);
 

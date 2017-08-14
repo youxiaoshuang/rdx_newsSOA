@@ -1,7 +1,7 @@
 package com.rdx.newsSOA.spider;
 
 
-import com.rdx.newsSOA.dao.TouTiaoNewModel;
+import com.rdx.newsSOA.dto.TouTiaoNewModel;
 import com.rdx.newsSOA.entity.NDoucument;
 import com.rdx.newsSOA.face.NewsService;
 import com.rdx.newsSOA.util.JsonTool;
@@ -54,7 +54,7 @@ public class NeiHanHotPageProcessor implements PageProcessor {
 //        }
 //        page.putField("readme", page.getHtml().xpath("//div[@id='readme']/tidyText()"));
 //        System.out.printf( page.getRawText() );
-        logger.info( "爬取到的数据{}", JsonTool.writeValueAsString( page.getRawText() ) );
+        logger.info( "爬取数据" );
         List<TouTiaoNewModel> newsList = getNewsList( page );
 //        logger.info( "分析之后的数据：{}", JsonTool.writeValueAsString( newsList ) );
 //        for (TouTiaoNewModel touTiaoNewModel : newsList) {

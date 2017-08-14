@@ -33,6 +33,8 @@ public class NDoucument implements Serializable{
 
     private String uuid;
 
+    private String md5;
+
     private Integer sourceType;
 
     private String sourceUrl;

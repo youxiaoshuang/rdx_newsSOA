@@ -1,6 +1,6 @@
 package com.rdx.newsSOA.spider;
 
-import com.rdx.newsSOA.dao.TouTiaoNewModel;
+import com.rdx.newsSOA.dto.TouTiaoNewModel;
 import com.rdx.newsSOA.entity.YFile;
 import com.rdx.newsSOA.util.JsonTool;
 import net.sf.json.JSONArray;
@@ -22,34 +22,37 @@ public class TouTiaoYiChangPageProcessor implements PageProcessor {
     private TouTiaoYiChangDetailProcessor touTiaoYiChangDetailProcessor;
 
     private Logger logger = LoggerFactory.getLogger( this.getClass() );
+//
+//    @Autowired
+//    private RedisClientAdapterImpl redisClientAdapter;
 
-//    private Site site = Site.me().setRetryTimes( 3 ).setSleepTime( 1000 );
-private Site site = Site.me().setCycleRetryTimes( 5 ).setRetryTimes( 5 ).setSleepTime( 500 ).setTimeOut( 3 * 60 * 1000 )
-        .setUserAgent( "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36" )
-        .addHeader( "Accept", "text/javascript, text/html, application/xml, text/xml, */*" )
-        .addHeader( "Accept-Encoding", "gzip, deflate, sdch, br" )
-        .addHeader( "Accept-Language", "zh-CN,zh;q=0.8,en;q=0.6" )
-        .addHeader( "Cache-Control", "no-cache" )
-        .addHeader( "Connection","keep-alive" )
-        .addCookie( "no-cache","w:10940df6ae9b45b58f0f055f6b775dc8" )
-        .addCookie( "cp","583E9D110BFD1E1" )
-        .addCookie( "__utma","24953151.1964721584.1472474880.1480398017.1480512393.3" )
-        .addCookie( "__utmz","24953151.1480391746.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)" )
-        .addCookie( "login_flag","b94f12620f33109ce5dc9c46327396bd" )
-        .addCookie( "sid_tt","10c8d9ccc00b6ff2ebc78d3604de5f19" )
-        .addCookie( "sessionid","10c8d9ccc00b6ff2ebc78d3604de5f19" )
-        .addCookie( "sid_guard","10c8d9ccc00b6ff2ebc78d3604de5f19|1480845873|2592000|Tue\\054 03-Jan-2017 10:04:33 GMT" )
-        .addCookie( "csrftoken","d4b4ba5bf7989f636600a7ab4873273e" )
-        .addCookie( "tt_webid","27059611200" )
-        .addCookie( "CNZZDATA1259612802","587757308-1476007816-null%7C1481110821" )
-        .addCookie( "_ga","GA1.2.1964721584.1472474880" )
-        .addCookie( "__tasessionId","iuc20sx3s1481111917461" )
-        .addHeader( "Host","www.toutiao.com" )
-        .addHeader( "Pragma","no-cache" )
-        .addHeader( "Referer","https://www.toutiao.com/news_hot/" )
-        .addHeader( "X-Requested-With","XMLHttpRequest" )
-        .addHeader( "Cookie", "uuid=\"w:f4fda41206df471a90c2988bb4b138b4\"; _ga=GA1.3.1815051801.1473401208; tt_webid=28215330997; Hm_lvt_773f1a5aa45c642cf87eef671e4d3f6a=1480736686; Hm_lpvt_773f1a5aa45c642cf87eef671e4d3f6a=1480736686; skip_guidence=1; csrftoken=783a7367ddad6fa93161b76e649a59c0" )
-        .setCharset( "UTF-8" );
+    //    private Site site = Site.me().setRetryTimes( 3 ).setSleepTime( 1000 );
+    private Site site = Site.me().setCycleRetryTimes( 5 ).setRetryTimes( 5 ).setSleepTime( 500 ).setTimeOut( 3 * 60 * 1000 )
+            .setUserAgent( "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36" )
+            .addHeader( "Accept", "text/javascript, text/html, application/xml, text/xml, */*" )
+            .addHeader( "Accept-Encoding", "gzip, deflate, sdch, br" )
+            .addHeader( "Accept-Language", "zh-CN,zh;q=0.8,en;q=0.6" )
+            .addHeader( "Cache-Control", "no-cache" )
+            .addHeader( "Connection", "keep-alive" )
+            .addCookie( "no-cache", "w:10940df6ae9b45b58f0f055f6b775dc8" )
+            .addCookie( "cp", "583E9D110BFD1E1" )
+            .addCookie( "__utma", "24953151.1964721584.1472474880.1480398017.1480512393.3" )
+            .addCookie( "__utmz", "24953151.1480391746.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)" )
+            .addCookie( "login_flag", "b94f12620f33109ce5dc9c46327396bd" )
+            .addCookie( "sid_tt", "10c8d9ccc00b6ff2ebc78d3604de5f19" )
+            .addCookie( "sessionid", "10c8d9ccc00b6ff2ebc78d3604de5f19" )
+            .addCookie( "sid_guard", "10c8d9ccc00b6ff2ebc78d3604de5f19|1480845873|2592000|Tue\\054 03-Jan-2017 10:04:33 GMT" )
+            .addCookie( "csrftoken", "d4b4ba5bf7989f636600a7ab4873273e" )
+            .addCookie( "tt_webid", "27059611200" )
+            .addCookie( "CNZZDATA1259612802", "587757308-1476007816-null%7C1481110821" )
+            .addCookie( "_ga", "GA1.2.1964721584.1472474880" )
+            .addCookie( "__tasessionId", "iuc20sx3s1481111917461" )
+            .addHeader( "Host", "www.toutiao.com" )
+            .addHeader( "Pragma", "no-cache" )
+            .addHeader( "Referer", "https://www.toutiao.com/news_hot/" )
+            .addHeader( "X-Requested-With", "XMLHttpRequest" )
+            .addHeader( "Cookie", "uuid=\"w:f4fda41206df471a90c2988bb4b138b4\"; _ga=GA1.3.1815051801.1473401208; tt_webid=28215330997; Hm_lvt_773f1a5aa45c642cf87eef671e4d3f6a=1480736686; Hm_lpvt_773f1a5aa45c642cf87eef671e4d3f6a=1480736686; skip_guidence=1; csrftoken=783a7367ddad6fa93161b76e649a59c0" )
+            .setCharset( "UTF-8" );
 
     @Override
     public void process(Page page) {
@@ -62,12 +65,12 @@ private Site site = Site.me().setCycleRetryTimes( 5 ).setRetryTimes( 5 ).setSlee
 //        }
 //        page.putField("readme", page.getHtml().xpath("//div[@id='readme']/tidyText()"));
 //        System.out.printf( page.getRawText() );
-        logger.info( "爬取到的数据{}", JsonTool.writeValueAsString( page.getRawText() ) );
+        logger.info( "爬取到数据");
         List<TouTiaoNewModel> newsList = getNewsList( page );
-        logger.info( "分析之后的数据：{}", JsonTool.writeValueAsString( newsList ) );
+        logger.info( "分析数据");
         for (TouTiaoNewModel touTiaoNewModel : newsList) {
             //保存新闻
-            logger.info( "保存一条新闻:{}", JsonTool.writeValueAsString( touTiaoNewModel ) );
+            logger.info( "保存一条新闻:  标题{}", JsonTool.writeValueAsString( touTiaoNewModel.getTitle() ) );
             touTiaoYiChangDetailProcessor.Run( touTiaoNewModel, touTiaoYiChangDetailProcessor );
         }
 
@@ -88,7 +91,7 @@ private Site site = Site.me().setCycleRetryTimes( 5 ).setRetryTimes( 5 ).setSlee
             String desc = (String) jsonObject.get( "abstract" );
             Boolean has_video = (Boolean) jsonObject.get( "has_video" );
             String url = (String) jsonObject.get( "item_source_url" );
-            url = "http://www.toutiao.com" + url;
+            url = "https://www.toutiao.com" + url;
             JSONArray image_list = (JSONArray) jsonObject.get( "image_list" );
             TouTiaoNewModel touTiaoNewModel = new TouTiaoNewModel();
             touTiaoNewModel.setDateTime( dateTime );

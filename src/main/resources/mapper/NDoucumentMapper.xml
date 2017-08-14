@@ -108,6 +108,12 @@
             <include refid="Example_Where_Clause"/>
         </if>
     </delete>
+
+    <insert id="insertDocBrowser" parameterType="com.rdx.newsSOA.face.serviceModel.DocBrowseLogModel">
+        insert LOW_PRIORITY INTO doc_browse_log(docId,userId,createTime,updateTime)
+        VALUES (#{docId,jdbcType=INTEGER},#{userId,jdbcType=INTEGER},now(),now());
+    </insert>
+
     <insert id="insert" parameterType="com.rdx.newsSOA.entity.NDoucument">
     insert into n_document (id, content, title, 
       status, updateTime, createTime, 
@@ -141,6 +147,9 @@
             <if test="uuid != null">
                 uuid,
             </if>
+            <if test="md5 != null">
+                md5,
+            </if>
             <if test="desc != null">
                 `desc`,
             </if>
@@ -172,6 +181,9 @@
             </if>
             <if test="uuid != null">
                 #{uuid,jdbcType=VARCHAR},
+            </if>
+            <if test="md5 != null">
+                #{md5,jdbcType=VARCHAR},
             </if>
             <if test="desc != null">
                 #{desc,jdbcType=VARCHAR},
@@ -207,6 +219,16 @@
 FROM n_document d
 WHERE d.`status` = 1 ORDER BY d.id DESC limit 5
     </select>
+
+
+    <select id="selectBanner" resultType="com.rdx.newsSOA.entity.NDoucument">
+    SELECT
+      d.id,
+      d.title,
+      d.uuid
+    FROM n_document d
+    WHERE d.`status` = 1 AND (SELECT count(1) FROM y_file f WHERE f.docId = d.id AND d.status = 1) >0  ORDER BY d.id DESC limit 5
+   </select>
 
     <select id="selectByRefresh" resultType="com.rdx.newsSOA.dto.DocumentModel">
         SELECT
@@ -244,11 +266,11 @@ WHERE d.`status` = 1 ORDER BY d.id DESC limit 5
         from n_document
         where uuid = #{code,jdbcType=VARCHAR}
     </select>
-    <select id="selectByTitle" resultType="com.rdx.newsSOA.entity.NDoucument">
+    <select id="selectByMd5" resultType="com.rdx.newsSOA.entity.NDoucument">
         select
         <include refid="Base_Column_List"/>
         from n_document
-        where title = #{title,jdbcType=VARCHAR}
+        where md5 = #{md5,jdbcType=VARCHAR}
     </select>
     <select id="selectHotNews" resultType="com.rdx.newsSOA.entity.NDoucument">
          SELECT

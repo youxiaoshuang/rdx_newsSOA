@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.rdx</groupId>
+    <artifactId>newsSOA</artifactId>
+    <packaging>jar</packaging>
+    <version>1.1-SNAPSHOT</version>
+    <name>newsSOA</name>
+    <url>http://maven.apache.org</url>
+
+    <parent>
+        <groupId>com.rdx</groupId>
+        <artifactId>common-dependency</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+
+    <properties>
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+        <java.home>/usr/local/java/jdk1.7.0_55</java.home>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Internal Releases</name>
+            <url>http://103.82.53.94:8082/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Internal Snapshots</name>
+            <url>http://103.82.53.94:8082/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <dependencies>
+        <!--微信相关-->
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>newsSOA</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <compilerVersion>1.7</compilerVersion>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                    <includes>
+                        <include>com/rdx/newsSOA/face/*</include>
+                        <include>com/rdx/newsSOA/dto/*</include>
+                        <include>com/rdx/newsSOA/entity/*</include>
+                        <include>com/rdx/newsSOA/face/serviceModel/*</include>
+                        <include>com/rdx/newsSOA/common/**</include>
+                        <include>com/rdx/newsSOA/util/**</include>
+                        <include>com/rdx/newsSOA/weixin/**</include>
+                    </includes>
+                    <excludes>
+                        <exclude>com/rdx/imgsoa/newsSOA/face/impl/*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 打jar包时需要把配置文件给排除在外 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>client</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>newsSOA-${project.version}</finalName>
+                            <includes>
+                                <include>com/rdx/newsSOA/face/*</include>
+                                <include>com/rdx/newsSOA/dto/*</include>
+                                <include>com/rdx/newsSOA/entity/*</include>
+                                <include>com/rdx/newsSOA/face/serviceModel/*</include>
+                                <include>com/rdx/newsSOA/common/**</include>
+                                <include>com/rdx/newsSOA/util/*</include>
+                                <include>com/rdx/newsSOA/weixin/**</include>
+                            </includes>
+                            <excludes>
+                                <exclude>com/rdx/imgsoa/newsSOA/face/impl/*</exclude>
+                            </excludes>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <archive>
+                                <manifestEntries>
+                                    <Manifest-Version>${project.version}</Manifest-Version>
+                                </manifestEntries>
+                                <manifest>
+                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                    <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+        </plugins>
+    </build>
+</project>

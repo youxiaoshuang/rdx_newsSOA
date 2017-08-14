@@ -17,10 +17,10 @@
      http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.0.xsd
      http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-4.0.xsd">
 
-	<import resource="spring-mvc.xml"></import>
+	<import resource="spring.xml"></import>
 	<import resource="spring-mybatis.xml"></import>
-	<!--<import resource="spring-redis.xml"/>-->
-	<import resource="dubbo.xml"/>
+	<import resource="spring-redis.xml"/>
+	<!--<import resource="dubbo.xml"/>-->
 
 
 	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor" scope="singleton">

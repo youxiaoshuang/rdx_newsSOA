@@ -1,6 +1,7 @@
 package com.rdx.newsSOA.Processor;
 
 import com.rdx.newsSOA.Server.SocketServer;
+import com.rdx.newsSOA.face.EstateService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -18,6 +19,8 @@ public class InstantiationTracingBeanPostProcessor implements ApplicationListene
     private Logger logger = Logger.getLogger(InstantiationTracingBeanPostProcessor.class);
     @Autowired
     private SocketServer socketServer;
+    @Autowired
+    private EstateService estateService;
     
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		// TODO Auto-generated method stub
@@ -32,7 +35,11 @@ public class InstantiationTracingBeanPostProcessor implements ApplicationListene
 	private void timeTask() {
 		Runnable runable = new Runnable() {
 			public void run() {
-				socketServer.runServer();
+				try {
+					socketServer.runServer();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				logger.info("为毛上不去啊");
 			}
 		};

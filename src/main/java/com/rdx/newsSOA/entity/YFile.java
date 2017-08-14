@@ -3,6 +3,7 @@ package com.rdx.newsSOA.entity;
 import java.io.Serializable;
 
 public class YFile implements Serializable {
+
     private static final long serialVersionUID = 2206419713465767169L;
     private Integer id;
 
@@ -23,6 +24,8 @@ public class YFile implements Serializable {
     private Integer docid;
 
     private Integer isLocalFile;
+
+    private String md5;
 
     public Integer getIsLocalFile() {
         return isLocalFile;
@@ -103,4 +106,13 @@ public class YFile implements Serializable {
     public void setDocid(Integer docid) {
         this.docid = docid;
     }
+
+    public String getMd5() {
+        return md5;
+    }
+
+    public void setMd5(String md5) {
+        this.md5 = md5;
+    }
+
 }

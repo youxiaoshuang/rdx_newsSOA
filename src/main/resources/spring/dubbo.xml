@@ -33,5 +33,7 @@
                    retries="0" timeout="20000"/>
     <dubbo:service interface="com.rdx.newsSOA.face.WechatService" ref="wechatService"
                    retries="0" timeout="20000"/>
+    <dubbo:service interface="com.rdx.newsSOA.face.StatisticsService" ref="statisticsService"
+                   retries="0" timeout="20000"/>
 
 </beans>
