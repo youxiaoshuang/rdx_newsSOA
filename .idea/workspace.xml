@@ -9,203 +9,17 @@
     <list default="true" id="84fa2d61-0df3-4f8c-8856-03d131516e17" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_1_7_RELEASE.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_1_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_0_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context___springframework_version_.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support___springframework_version_.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_1_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_0_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_0_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_0_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_0_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm___springframework_version_.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test___springframework_version_.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_1_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_0_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_0_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Processor/DataSourceTask$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Processor/DataSourceTask.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Processor/InstantiationTracingBeanPostProcessor$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Processor/InstantiationTracingBeanPostProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Server/EndPoint.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Server/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Server/Producer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Server/QueueConsumer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Server/Redis.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Server/RunableDemo$TestThread1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Server/RunableDemo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Server/SocketServer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Server/TestThread.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/Server/ThreadDemo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/common/GeetestResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/common/Response.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/common/UrlEnum.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/common/constants/SessionConstants/CookieConstants.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/common/constants/SessionConstants/Global/RedisKeyEnum.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/common/constants/SessionConstants/SessionConstants.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dao/NDoucumentMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dao/OrderEntityMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dao/TagMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dao/UserMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dao/YCodeMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dao/YFileMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dao/YImageEntityMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/AccessToken.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/BuildingSeachRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/BuildingSeachResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/ChatObject.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/DanYuanSeachRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/DanYuanSeachResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/DocumentModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/EstateInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/EstateSearchRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/EstateSearchResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/ImageModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/LoginUser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/NewsModeEnum.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/NewsStatic.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/OnlineObject.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/Page.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/RoomSeachRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/RoomSeachResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/TouTiaoNewModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/dto/WeChat.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/NDoucument.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/NDoucumentExample$Criteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/NDoucumentExample$Criterion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/NDoucumentExample$GeneratedCriteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/NDoucumentExample.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/OrderEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/Tag.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/TagExample$Criteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/TagExample$Criterion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/TagExample$GeneratedCriteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/TagExample.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/UserExample$Criteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/UserExample$Criterion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/UserExample$GeneratedCriteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/UserExample.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/YCode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/YCodeExample$Criteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/YCodeExample$Criterion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/YCodeExample$GeneratedCriteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/YCodeExample.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/YFile.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/YFileExample$Criteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/YFileExample$Criterion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/YFileExample$GeneratedCriteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/YFileExample.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/entity/YImageEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/ChatService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/EstateService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/FileService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/Fungugu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/ImageService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/MemcachedClientAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/NewsService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/OrderService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/SimSimiService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/StatisticsService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/TagService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/TestService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/UserService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/WechatService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/ChatServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/ConcurrentDateUtil$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/ConcurrentDateUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/EstateServiceImpl$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/EstateServiceImpl$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/EstateServiceImpl$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/EstateServiceImpl$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/EstateServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/FileServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/ImageServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/NewsServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/OrderServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/RedisClientAdapterImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/SimSimiServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/StatisticsServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/TagServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/TestNum$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/TestNum$TestClient.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/TestNum.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/TestServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/UserServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/impl/WechatServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/serviceModel/DocBrowseLogModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/serviceModel/FileModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/face/serviceModel/Response.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/interceptor/PageInterceptor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/listener/CharteventListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/listener/ConnectionListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/listener/InstantiationTracingBeanPostProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/DouTuDetailProcessor$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/DouTuDetailProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/EstateBuildProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/EstateDanYuanProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/EstateListProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/EstateRoomProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/NeiHanHotDetailProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/NeiHanHotPageProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/NeiHanImagePageProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/TouTiaoHotDetailProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/TouTiaoHotPageProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/TouTiaoYiChangDetailProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spider/TouTiaoYiChangPageProcessor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spring/FXNewsBean.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spring/FXNewsProvider.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spring/IFXNewsListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/spring/IFXNewsPersister.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/task/SpiderTask$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/task/SpiderTask$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/task/SpiderTask.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/AjaxUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/BASE64.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/CacheUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/Constants.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/DateUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/EncryptUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/FileUitl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/HtmlUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/HttpClientUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/HttpUtil$UTF8PostMethod.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/HttpUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/JedisClusterAdaptor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/JedisClusterBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/JsonTool.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/Jsonable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/ListUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/MessageUtil$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/MessageUtil$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/MessageUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/PageParameter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/ReflectUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/SerializeTool.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/util/SignUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/JSSign.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/pull/Content.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/pull/MessageCustomSend.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/pull/PullResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/pull/PullTextMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/req/BaseMessageRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/req/ImageMessageRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/req/LinkMessageRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/req/LocationMessageRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/req/TextMessageRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/req/VoiceMessageRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/resp/Article.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/resp/BaseMessageResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/resp/Music.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/resp/MusicMessageResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/resp/NewsMessageResponse.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rdx/newsSOA/weixin/resp/TextMessageResponse.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/newsSOA_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/newsSOA_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newsSOA.iml" afterPath="$PROJECT_DIR$/newsSOA.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/YImageEntityMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/YImageEntityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/spring/dubbo.xml" afterPath="$PROJECT_DIR$/target/classes/spring/dubbo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/spring/mybatis-config.xml" afterPath="$PROJECT_DIR$/target/classes/spring/mybatis-config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/spring/spring-mybatis.xml" afterPath="$PROJECT_DIR$/target/classes/spring/spring-mybatis.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/spring/spring.xml" afterPath="$PROJECT_DIR$/target/classes/spring/spring.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web___springframework_version_.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc___springframework_version_.xml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support___springframework_version_.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_4_0_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_1_7_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_0_3_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rdx/newsSOA/task/SpiderTask.java" afterPath="$PROJECT_DIR$/src/main/java/com/rdx/newsSOA/task/SpiderTask.java" />
     </list>
     <ignored path="fightting.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -284,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpiderTask.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SpiderTask.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/rdx/newsSOA/task/SpiderTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="37" column="28" lean-forward="false" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+            <state relative-caret-position="100">
+              <caret line="35" column="9" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
               <folding>
                 <element signature="e#1589#1715#0" expanded="true" />
                 <element signature="e#1714#1715#0" expanded="true" />
@@ -309,7 +123,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-378">
@@ -491,9 +305,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/rdx/newsSOA/spider/TouTiaoYiChangPageProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rdx/newsSOA/spider/TouTiaoYiChangDetailProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rdx/newsSOA/spider/TouTiaoHotDetailProcessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rdx/newsSOA/task/SpiderTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rdx/newsSOA/spider/TouTiaoHotPageProcessor.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rdx/newsSOA/task/SpiderTask.java" />
       </list>
     </option>
   </component>
@@ -1830,12 +1644,12 @@
       <workItem from="1502704930312" duration="521000" />
       <workItem from="1502708295949" duration="4884000" />
       <workItem from="1502951484452" duration="122000" />
-      <workItem from="1502956994792" duration="1224000" />
+      <workItem from="1502956994792" duration="1277000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="850814000" />
+    <option name="totallyTimeSpent" value="850867000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1864,7 +1678,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52819806" sideWeight="0.55815834" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37964237" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3232462" sideWeight="0.49676898" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3232462" sideWeight="0.49676898" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32612056" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -2552,19 +2366,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rdx/newsSOA/task/SpiderTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="37" column="28" lean-forward="false" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
-          <folding>
-            <element signature="e#1589#1715#0" expanded="true" />
-            <element signature="e#1714#1715#0" expanded="true" />
-            <element signature="e#2909#3444#0" expanded="true" />
-            <element signature="e#3443#3444#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rdx/newsSOA/spider/TouTiaoYiChangPageProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -2614,6 +2415,19 @@
       </provider>
       <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rdx/newsSOA/task/SpiderTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="35" column="9" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          <folding>
+            <element signature="e#1589#1715#0" expanded="true" />
+            <element signature="e#1714#1715#0" expanded="true" />
+            <element signature="e#2909#3444#0" expanded="true" />
+            <element signature="e#3443#3444#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

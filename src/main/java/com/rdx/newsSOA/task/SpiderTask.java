@@ -33,9 +33,9 @@ public class SpiderTask {
 
 
     /**
-     * 每一分钟执行一次
+     * 每5分钟执行一次
      */
-    @Scheduled(cron = "0 0/1 * * * ?")
+    @Scheduled(cron = "0 0/5 * * * ?")
     public void run() {
 //        threadPoolTaskExecutor.execute( new Runnable() {
 //            @Override
