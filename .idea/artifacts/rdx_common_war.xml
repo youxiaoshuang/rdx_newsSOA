@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="rdx_common:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="rdx_common.war">
+      <element id="artifact" artifact-name="rdx_common:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - fighting@localhost" uuid="4d9d1464-465e-41a3-a0e5-1acf8d57eac6">
+    <database-info product="MySQL" version="5.7.15" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="fighting"/>
+      <table id="2" parent="1" name="n_document"/>
+      <table id="3" parent="1" name="user"/>
+      <table id="4" parent="1" name="y_image"/>
+      <column id="5" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11) unsigned</data-type>
+      </column>
+      <column id="6" parent="2" name="content">
+        <comment>html内容</comment>
+        <mandatory>1</mandatory>
+        <data-type>longtext</data-type>
+      </column>
+      <column id="7" parent="2" name="title">
+        <comment>标题</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="8" parent="2" name="status">
+        <comment>1可用 2不可用 默认0</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(2)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="9" parent="2" name="updateTime">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="10" parent="2" name="createTime">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="11" parent="2" name="uuid">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="12" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="13" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="14" parent="3" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="15" parent="3" name="password">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="16" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="17" parent="4" name="imageId">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="18" parent="4" name="type">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="19" parent="4" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="20" parent="4" name="size">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="21" parent="4" name="url">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="22" parent="4" name="ftpUrl">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="23" parent="4" name="PRIMARY">
+        <columns>imageId</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
