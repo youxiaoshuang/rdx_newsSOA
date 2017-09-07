@@ -58,6 +58,10 @@
     <bean id="neiHanHotPageProcessor" class="com.rdx.newsSOA.spider.NeiHanHotPageProcessor" scope="prototype"></bean>
     <bean id="neiHanImagePageProcessor" class="com.rdx.newsSOA.spider.NeiHanImagePageProcessor" scope="prototype"></bean>
     <bean id="douTuDetailProcessor" class="com.rdx.newsSOA.spider.DouTuDetailProcessor" scope="prototype"></bean>
+    <bean id="junShiListProcessor" class="com.rdx.newsSOA.spider.JunShiListProcessor" scope="prototype"></bean>
+    <bean id="junShiDetailProcessor" class="com.rdx.newsSOA.spider.JunShiDetailProcessor" scope="prototype"></bean>
+    <bean id="movieRs05ListProcessor" class="com.rdx.newsSOA.spider.MovieRs05ListProcessor" scope="prototype"></bean>
+    <bean id="movieRs05DetailProcessor" class="com.rdx.newsSOA.spider.MovieRs05DetailProcessor" scope="prototype"></bean>
 
 
 

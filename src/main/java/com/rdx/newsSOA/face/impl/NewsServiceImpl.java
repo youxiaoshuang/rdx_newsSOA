@@ -369,7 +369,6 @@ public class NewsServiceImpl implements NewsService {
         List<String> userList = new ArrayList();
         userList.add( "fd8bf9aa-6a15-4927-a5ed-da24e63d67fb" );
         userList.add( "1aff5a07-dfe6-4b18-ae96-34f6c387f754" );
-        userList.add( "dd983771-2db7-4db1-a3fc-a1547f6494da" );
         userList.add( "4a14693d-d384-4536-bd7d-b7496dcb74a4" );
         userList.add( "c23e2c18-68f3-4720-9b02-066e70c98fa8" );
         userList.add( "e8d432f4-f436-42d5-818b-39d00d79ba5b" );
@@ -387,8 +386,16 @@ public class NewsServiceImpl implements NewsService {
 
 
         heads.put( "Authorization", "Bearer " + userToken + "" );
-        //头条新闻
-        params.put( "cid", "16" );
+        if (nDoucument.getSourceType() == 4) {
+            //军事
+            params.put( "cid", "17" );
+        } else if(nDoucument.getSourceType() == 5) {
+            //电影资源
+            params.put( "cid", "20" );
+        }else{
+            //头条新闻
+            params.put( "cid", "16" );
+        }
         params.put( "title", nDoucument.getTitle() );
         String content = "";
         if (StringUtils.isBlank( nDoucument.getContent() ) && nDoucument.getSourceType() == 3) {

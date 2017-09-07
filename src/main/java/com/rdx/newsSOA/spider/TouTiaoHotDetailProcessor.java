@@ -31,7 +31,7 @@ public class TouTiaoHotDetailProcessor implements PageProcessor {
     public TouTiaoNewModel getNewsDetail(Page page) {
         Map<String, Object> extras = page.getRequest().getExtras();
         TouTiaoNewModel touTiaoNewModel = (TouTiaoNewModel) extras.get( "touTiaoNewModel" );
-        page.putField( "content", page.getHtml().xpath( "//*[@class='article__content']" ).all() );
+        page.putField( "content", page.getHtml().xpath( "//*[@class='article-content']" ).all() );
         ResultItems resultItems = page.getResultItems();
         ArrayList<String> contentList = resultItems.get( "content" );
         StringBuffer stringBuffer = new StringBuffer( "" );
